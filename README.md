@@ -2,7 +2,7 @@
 
 A modern and feature-rich to-do list application built from scratch with React.js. This project was created as a part of a guided learning journey to master fundamental and advanced React concepts, with a strong focus on creating a beautiful and impressive user interface.
 
-**[➡️ [Live Demo Link Here](http://localhost:3000/)]** ## ✨ Features
+ ## ✨ Features
 
 * **Full CRUD Functionality:** Create, Read, Update, and Delete tasks.
 * **Two-Page View:** Seamlessly switch between a task list view and a dedicated form for adding new tasks.
