@@ -1,38 +1,219 @@
+/* --- CLAYMORPHISM THEME --- */
+:root {
+  --bg-color: #f5efe6;          
+  --primary-color: #2A9D8F;      /* The main Teal color */
+  --border-color: #217C72;       /* A darker Teal for the 3D effect */
+  --accent-color: #E9C46A;       /* Sandy Yellow for accents */
+  --font-color: #264653;         /* A very dark, rich Teal/Blue */
+  --light-font-color: #ffffff;
+  --danger-color: #E76F51;       /* Burnt Sienna */
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  padding: 1rem;
+  
+  /* --- NEW DOODLE BACKGROUND --- */
+  background-color: var(--bg-color);
+  /* We layer multiple gradients to create the pattern. Each one is a different colored dot. */
+  background-image:
+    radial-gradient(circle at 80% 20%, var(--primary-color) 3px, transparent 0), /* Teal dots */
+    radial-gradient(circle at 15% 70%, var(--danger-color) 2px, transparent 0), /* Burnt Sienna dots */
+    radial-gradient(circle at 45% 55%, var(--accent-color) 4px, transparent 0); /* Yellow dots */
+  
+  /* This controls the density of the pattern. You can make the numbers smaller for more doodles! */
+  background-size: 120px 120px;
+}
+
+/* --- MAIN APP LAYOUT --- */
 .App {
-  text-align: center;
+  max-width: 450px;
+  margin: 0 auto;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+h1, h2 {
+  font-weight: 700;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.completed-title {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* --- BUTTONS (Claymorphism Style) --- */
+.btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+  border: 2px solid var(--font-color);
+  border-bottom-width: 5px;
+  border-right-width: 5px;
+  background-color: var(--accent-color);
+  color: var(--font-color);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  transform: translateY(2px);
+  border-bottom-width: 2px;
+  border-right-width: 2px;
+}
+
+.add-btn-circle {
+  width: 50px;
+  height: 50px;
+  padding: 0;
+  font-size: 2rem;
+  line-height: 1;
+  background-color: var(--primary-color);
+  color: var(--light-font-color);
+  border-color: var(--border-color);
+}
+
+.action-btn {
+  background-color: var(--light-font-color);
+  color: var(--primary-color);
+  border-color: #d0d0d0;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+}
+
+.remove-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #a0a0a0;
+  box-shadow: none; /* Remove 3D effect from plain remove icon */
+}
+.remove-btn:hover { color: var(--danger-color); }
+.remove-btn:active { transform: translateY(0); }
+
+.primary-btn {
+  background-color: var(--accent-color);
+}
+
+.secondary-btn {
+  background-color: #e0e0e0;
+  border-color: #c0c0c0;
+}
+
+/* --- TASK CARDS --- */
+.task-list {
   display: flex;
   flex-direction: column;
+  gap: 1.5rem;
+}
+
+.task-card {
+  display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
+  background-color: var(--primary-color);
+  color: var(--light-font-color);
+  padding: 1rem 1.5rem;
+  border-radius: 16px;
+  border: 2px solid var(--border-color);
+  border-bottom-width: 6px;
+  border-right-width: 6px;
 }
 
-.App-link {
-  color: #61dafb;
+.task-card.completed {
+  background-color: #d8d8d8;
+  color: #888;
+  border-color: #b0b0b0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.task-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.task-meta {
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+
+.card-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.card-actions .btn.small {
+  padding: 0.4rem 0.8rem;
+  font-size: 0.8rem;
+}
+
+
+/* --- ADD TASK VIEW & FORM (STYLES UPDATED HERE) --- */
+.add-task-view {
+  background-color: #2A9D8F;
+  padding: 2rem;
+  border-radius: 20px;
+  /* Applying the 3D border to the entire form container */
+  border: 2px solid #217C72;
+  border-bottom-width: 6px;
+  border-right-width: 6px;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.75rem; /* More space */
+  font-weight: 600;
+  font-size: 1.1rem; /* Bigger labels */
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border-radius: 12px; /* Matching border radius */
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+  transition: all 0.2s;
+  background-color: white; /* Clean white background for inputs */
+  color: var(--font-color);
+
+  /* Applying the 3D border to the inputs */
+  border: 2px solid #d0d0d0;
+  border-bottom-width: 5px;
+  border-right-width: 5px;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  /* Make the border pop with the accent color on focus */
+  border-color: var(--accent-color);
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 2rem;
 }
