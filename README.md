@@ -25,16 +25,6 @@ A modern and feature-rich to-do list application built from scratch with React.j
 * **CSS3:** Custom styling for the "Claymorphism" design, layout, and responsiveness.
 * **HTML5:** Semantic HTML structure.
 
-## 🛠️ Getting Started
-
-To get a local copy up and running, follow these simple steps.
-
-### Prerequisites
-
-* Node.js and npm installed on your machine. You can download them [here](https://nodejs.org/).
-
-
-The application will be running on `http://localhost:3000`.
 
 ## 👤 Contact
 
